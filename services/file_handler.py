@@ -2,7 +2,6 @@ import os
 import sys
 import base64
 from pathlib import Path
-from PIL import Image
 import pymupdf
 from typing import List
 
