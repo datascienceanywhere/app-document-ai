@@ -1,0 +1,29 @@
+[project]
+name = "document-ai"
+version = "0.1.0"
+description = "This is for the course Intelligent document extraction with OpenAI GPT and Langchain"
+authors = [
+    {name = "datascienceanywhere",email = "datascienceanywhere@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13,<4.0.0"
+dependencies = [
+    "jupyter (>=1.1.1,<2.0.0)",
+    "python-dotenv (>=1.2.1,<2.0.0)",
+    "pymongo[srv] (>=4.15.5,<5.0.0)",
+    "fastapi[standard] (>=0.128.0,<0.129.0)",
+    "uvicorn (>=0.40.0,<0.41.0)",
+    "httpx (>=0.28.1,<0.29.0)",
+    "httpie (>=3.2.4,<4.0.0)",
+    "langchain (>=1.2.0,<2.0.0)",
+    "openai (>=2.14.0,<3.0.0)",
+    "langchain-openai (>=1.1.6,<2.0.0)",
+    "mypy (>=1.19.1,<2.0.0)",
+    "jinja2 (>=3.1.6,<4.0.0)",
+    "pymupdf (>=1.27.1,<2.0.0)",
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
