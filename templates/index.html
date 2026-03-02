@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+
+        <div class="card shadow">
+            <div class="card-body">
+
+                <h4 class="card-title mb-4 text-center">
+                    Upload Invoice
+                </h4>
+
+                <!-- 🔴 Error Alert -->
+                {% if error %}
+                <div class="alert alert-danger">
+                    {{ error }}
+                </div>
+                {% endif %}
+
+                <!-- 📤 Upload Form -->
+                <form id="uploadForm"
+                      method="post"
+                      action="/extract-invoice"
+                      enctype="multipart/form-data">
+
+                    <div class="mb-3">
+                        <label class="form-label">
+                            Select Invoice (PDF / Image)
+                        </label>
+                        <input type="file"
+                               class="form-control"
+                               name="file"
+                               accept=".pdf,.png,.jpg,.jpeg"
+                               required>
+                    </div>
+
+                    <div class="d-grid">
+                        <button type="submit"
+                                class="btn btn-primary custom-navbar">
+                            Process Invoice
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

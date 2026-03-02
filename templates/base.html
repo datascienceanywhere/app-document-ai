@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Intelligent Document Processing</title>
+
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <style>
+        /* Loader Overlay */
+        #loaderOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #002776;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        #loaderOverlay .loader-content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .custom-navbar {
+        background-color: #002776;
+        }
+
+        .custom-navbar .navbar-brand {
+            color: #92d400 !important;
+        }
+
+        .custom-navbar .btn-outline-light {
+            color: #92d400;
+            border-color: #92d400;
+        }
+
+        .custom-navbar .btn-outline-light:hover {
+            background-color: #92d400;
+            color: #002776;
+        }
+    </style>
+</head>
+<body>
+
+<!-- 🔷 Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+    <div class="container">
+        <a class="navbar-brand" href="/">Intelligent Document Processing</a>
+        <div>
+            <a class="btn btn-outline-light me-2" href="/">Home</a>
+            <a class="btn btn-outline-light" href="/invoices">History</a>
+        </div>
+    </div>
+</nav>
+
+<!-- 🔄 Loader Overlay -->
+<div id="loaderOverlay">
+    <div class="loader-content">
+        <div class="spinner-border text-primary mb-3" role="status"></div>
+        <h5>Processing Invoice...</h5>
+        <p>Please wait while we extract data.</p>
+    </div>
+</div>
+
+<!-- 🔷 Page Content -->
+<div class="container mt-4">
+    {% block content %}
+    {% endblock %}
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Loader Script -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("uploadForm");
+        if (form) {
+            form.addEventListener("submit", function () {
+                document.getElementById("loaderOverlay").style.display = "flex";
+            });
+        }
+    });
+</script>
+
+</body>
+</html>

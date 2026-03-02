@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card shadow">
+    <div class="card-header bg-dark text-white">
+        Processed Invoices
+    </div>
+
+    <div class="card-body">
+
+        {% if invoices and invoices|length > 0 %}
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>Invoice Number</th>
+                        <th>Seller</th>
+                        <th>Invoice Date</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for invoice in invoices %}
+                    <tr>
+                        <td>{{ invoice.invoice_number }}</td>
+                        <td>{{ invoice.seller }}</td>
+                        <td>{{ invoice.invoice_date }}</td>
+                        <td><strong>{{ invoice.total }}</strong></td>
+                        <td>
+                            <a href="/invoice/{{ invoice._id }}"
+                               class="btn btn-sm btn-primary custom-navbar">
+                                View
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+
+        {% else %}
+
+        <div class="alert alert-info">
+            No invoices processed yet.
+        </div>
+
+        {% endif %}
+
+    </div>
+</div>
+
+{% endblock %}
